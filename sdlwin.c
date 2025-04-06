@@ -8,6 +8,20 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "SDL_Init Error: %s\n", SDL_GetError());
     return 1;
   }
+  SDL_version compiled;
+  SDL_version linked;
+
+  SDL_VERSION(&compiled);
+  printf("Compiled against SDL version %d.%d.%d\n", compiled.major,
+         compiled.minor, compiled.patch);
+
+  SDL_GetVersion(&linked);
+  printf("Linked against SDL version %d.%d.%d\n", linked.major, linked.minor,
+         linked.patch);
+
+  // SDL_SetHint(SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR, "0");
+  // SDL_SetHint(SDL_HINT_VIDEO_X11_FORCE_EGL, "0");
+  // SDL_SetHint(SDL_HINT_VIDEO_X11_WINDOW_VISUALID, "0");
 
   // Create a window
   SDL_Window *window =

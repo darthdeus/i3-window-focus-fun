@@ -23,7 +23,7 @@ run-sdl: build-sdl
 
 build-sdl-cmake:
 	mkdir -p build
-	cd build && cmake .. && make
+	cd build && cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && make -j
 
 run-sdl-cmake: build-sdl-cmake
 	cd build && ./sdlwin_cmake
